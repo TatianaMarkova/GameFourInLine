@@ -50,12 +50,13 @@
 
     function checkWin(gamer, lines) {
         for (let i = 0; i <rowsNum; i++) {
-            for (let j = 4; j < colsNum; j++) {
+            for (let j = 3; j < colsNum; j++) {
                if (
                    lines[i][j-3].classList.contains(gamer) &&
                    lines[i][j-2].classList.contains(gamer) &&
                    lines[i][j-1].classList.contains(gamer) &&
-                   lines[i][j].classList.contains(gamer))
+                   lines[i][j].classList.contains(gamer)
+                  )
                 {
                     return true;
                }
@@ -83,8 +84,9 @@
             }
             field.appendChild(tr);
         }
+        return rows;
     } 
-    function cellClickHandler(gamer = gamer1) {
+    function cellClickHandler() {
         this.classList.add(gamers[gamerNum]);
         this.removeEventListener('click', cellClickHandler);
         console.log(checkWin('gamer1', lines)); //proverka pobedit posle click
